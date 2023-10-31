@@ -226,6 +226,8 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         
+        // pengecekan apakah kedua field sudah diisi atau belum
+        if(!tfAngkaPertama.getText().isEmpty() || !tfAngkaKedua.getText().isEmpty()){
         
         // initialisasi variabel dan ambil nilai dari komponen
         double angkaPertama = Double.parseDouble(tfAngkaPertama.getText());
@@ -235,7 +237,15 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         
         // tampilkan hasil di textfield hasil
         tfHasil.setText(String.valueOf(hasil));
-
+        
+        }else{
+            JOptionPane.showMessageDialog(this, "Kedua angka belum diisi!");
+            if(tfAngkaPertama.getText().isEmpty()){
+                tfAngkaPertama.requestFocus();
+            }else{
+                tfAngkaKedua.requestFocus();
+            }
+        }
         
     }//GEN-LAST:event_btnTambahActionPerformed
 
